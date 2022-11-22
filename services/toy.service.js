@@ -1,3 +1,4 @@
+const { log } = require('console')
 const fs = require('fs')
 const gToys = require('../data/toy.json')
 
@@ -9,6 +10,7 @@ module.exports = {
 }
 
 function query(filterBy) {
+  console.log('filterBy', filterBy)
   return Promise.resolve(_filter(filterBy))
 }
 
@@ -25,9 +27,30 @@ function remove(toyId) {
 
 function _filter(filterBy) {
   console.log('filterBy:', filterBy)
-  const { name } = filterBy
+  const { name, minPrice, maxPrice, label, sort, inStock } = filterBy
+  console.log(typeof inStock);
   const regex = new RegExp(name, 'i')
   let filteredToys = gToys.filter((toy) => regex.test(toy.name))
+
+  sort === 'name'
+    ? filteredToys.sort((toy1, toy2) => toy1[sort].localeCompare(toy2[sort]))
+    : filteredToys.sort((toy1, toy2) => toy2[sort] - toy1[sort])
+
+  filteredToys = filteredToys.filter((toy) => toy.inStock === inStock)
+
+  if (label !== 'All') {
+    filteredToys = filteredToys.filter((toy) => toy.labels.includes(label))
+  }
+
+  const searchMin = (minPrice) ? minPrice : 0
+  filteredToys = filteredToys.filter(toy => {
+    return toy.price > searchMin
+  })
+
+  const searchMax = (maxPrice) ? maxPrice : Infinity
+  filteredToys = filteredToys.filter(toy => {
+    return toy.price < searchMax
+  })
 
   return filteredToys
 }

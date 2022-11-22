@@ -1,15 +1,39 @@
 [
   {
-    "_id": "t102",
-    "name": "puzzle",
-    "price": 80,
+    "_id": "F171j",
+    "name": "new toy",
+    "price": "156",
+    "inStock": true,
+    "createdAt": 1669134205692,
     "labels": [
       "Doll",
       "Battery Powered",
       "Baby"
-    ],
+    ]
+  },
+  {
+    "_id": "t40kM",
+    "name": "car poy",
+    "price": 100,
+    "inStock": true,
+    "createdAt": 1669133716800,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ]
+  },
+  {
+    "_id": "t102",
+    "name": "puzzle",
+    "price": 80,
+    "inStock": true,
     "createdAt": 1631031801011,
-    "inStock": true
+    "labels": [
+      "Doll",
+      "Battery Powered"
+      
+    ]
   },
   {
     "_id": "t103",
@@ -19,8 +43,8 @@
     "createdAt": 1631031801011,
     "labels": [
       "Doll",
-      "Battery Powered",
-      "Baby"
+      "Battery Powered"
+      
     ]
   },
   {

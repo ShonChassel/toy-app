@@ -30,13 +30,17 @@ app.use(cors(corsOptions))
 //?--------LIST
 app.get('/api/toys', (req, res) => {
   console.log('hey')
+  console.log('req.query')
 
-  var { name, minPrice, maxPrice } = req.query
+  var { name, minPrice, maxPrice, label, sort, inStock } = req.query
 
   const filterBy = {
     name: name || '',
     minPrice: minPrice || '',
     maxPrice: maxPrice || '',
+    label: label || 'All',
+    sort: sort || 'name',
+    inStock: JSON.parse(inStock),
   }
   toyService.query(filterBy).then((toys) => {
     res.send(toys)
@@ -53,14 +57,13 @@ app.get('/api/toys/:toyId', (req, res) => {
 
 //?------ADD
 app.post('/api/toys', (req, res) => {
-  const { name, price, inStock, createdAt, labels, reviews } = req.body
+  const { name, price, } = req.body
   const toy = {
     name,
     price,
-    inStock,
-    createdAt,
-    labels,
-    reviews,
+    inStock: true,
+    createdAt: Date.now(),
+    labels:["Doll","Battery Powered","Baby"]
   }
   toyService.save(toy).then((savedToy) => {
     res.send(savedToy)
