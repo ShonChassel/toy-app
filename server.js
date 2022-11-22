@@ -6,6 +6,8 @@ const toyService = require('./services/toy.service')
 
 const app = express()
 
+const port = process.env.PORT || 3030;
+
 // Express Config:
 app.use(express.static('public'))
 app.use(cookieParser())
@@ -29,7 +31,7 @@ app.use(cors(corsOptions))
 app.get('/api/toys', (req, res) => {
   console.log('hey')
 
-  var { name, minPrice, maxPrice} = req.query
+  var { name, minPrice, maxPrice } = req.query
 
   const filterBy = {
     name: name || '',
@@ -102,6 +104,11 @@ app.post('/logout', (req, res) => {
   res.send('logging  uot')
 })
 
-app.listen(3030, () =>
-  console.log(`Server listening on port http://127.0.0.1:3030/`)
-)
+// app.listen(3030, () =>
+//   console.log(`Server listening on port http://127.0.0.1:3030/`)
+// )
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}!`)
+});
+
