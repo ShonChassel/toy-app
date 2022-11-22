@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "t102",
+    "name": "puzzle",
+    "price": 80,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": true
+  },
+  {
+    "_id": "t103",
+    "name": "car ",
+    "price": 169,
+    "inStock": true,
+    "createdAt": 1631031801011,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ]
+  },
+  {
+    "_id": "t104",
+    "name": "Lego",
+    "price": 70,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": true
+  }
+]
